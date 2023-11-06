@@ -4,16 +4,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        int[] sum = new int[t];
+        StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < t; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
-            sum[i] = a + b;
+
+            sb.append(a + b).append("\n");
         }
 
-        for (int k : sum) {
-            System.out.println(k);
-        }
+        System.out.println(sb);
     }
 }
