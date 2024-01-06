@@ -1,24 +1,27 @@
 import heapq
+import sys
 
-n = int(input())
+n = int(sys.stdin.readline())  # 후보 수
+heap = []
 
-hq = []
 for i in range(n):
-    votes = int(input())
+    m = int(sys.stdin.readline())
     if i == 0:
-        dasom_votes = votes
+        dasom = m
         continue
 
-    heapq.heappush(hq, -votes)
+    # 최대 힙으로 만들어줌
+    heapq.heappush(heap, -m)
 
-bribe_count = 0
-while hq:
-    votes = -heapq.heappop(hq)
-    if votes < dasom_votes:
+count = 0
+while heap:
+    vote = -heapq.heappop(heap) # 후보 득표수
+    # 다솜 득표수가 다른 후보 득표수보다 많으면 반복문 종료
+    if dasom > vote:
         break
 
-    dasom_votes += 1
-    bribe_count += 1
-    heapq.heappush(hq, -(votes - 1))
+    heapq.heappush(heap, -(vote - 1))
+    dasom += 1
+    count += 1
 
-print(bribe_count)
+print(count)
