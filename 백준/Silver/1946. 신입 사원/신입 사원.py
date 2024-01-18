@@ -1,9 +1,10 @@
 import sys
+input = sys.stdin.readline
 
-t = int(sys.stdin.readline())  # 테스트케이스 수
+t = int(input())  # 테스트케이스 수
 for _ in range(t):
-    n = int(sys.stdin.readline())  # 지원자 수
-    ranks = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]  # 성적 순위
+    n = int(input())  # 지원자 수
+    ranks = [list(map(int, input().split())) for _ in range(n)]  # 성적 순위
     # 서류 성적 순위로 정렬
     ranks.sort()
 
