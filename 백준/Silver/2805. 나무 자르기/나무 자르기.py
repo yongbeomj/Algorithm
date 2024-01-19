@@ -15,6 +15,7 @@ def max_setting_height(tree_height_lst, target):
             if height > mid:
                 total_log_tree += height - mid
 
+        # 필요 나무 길이를 비교 조건으로 최소값이 될 때까지 탐색 범위 설정
         if total_log_tree >= target:
             max_height = mid
             start = mid + 1
@@ -24,7 +25,6 @@ def max_setting_height(tree_height_lst, target):
     return max_height
 
 
-if __name__ == '__main__':
-    n, m = map(int, input().split())  # 나무 수, 필요한 나무 길이
-    tree_height = sorted(list(map(int, input().split())))  # 나무 높이 
-    print(max_setting_height(tree_height, m))
+n, m = map(int, input().split())  # 나무 수, 필요한 나무 길이
+tree_height = sorted(list(map(int, input().split())))  # 나무 높이
+print(max_setting_height(tree_height, m))
