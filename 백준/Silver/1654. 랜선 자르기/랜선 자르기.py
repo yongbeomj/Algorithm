@@ -24,7 +24,6 @@ def max_lan_length(lan_length_lst, target):
     return max_lenght
 
 
-if __name__ == '__main__':
-    k, n = map(int, input().split())  # 랜선 개수, 필요 랜선 개수
-    lan_length = list(int(input()) for _ in range(k))  # 랜선 길이
-    print(max_lan_length(lan_length, n))
+k, n = map(int, input().split())  # 랜선 개수, 필요 랜선 개수
+lan_length = list(int(input()) for _ in range(k))  # 랜선 길이
+print(max_lan_length(lan_length, n))
