@@ -5,11 +5,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String s = br.readLine();
-        int i = Integer.parseInt(br.readLine());
-        
-        bw.write(s.charAt(i-1));
-        br.close();
+        String word = br.readLine();
+        int n = Integer.parseInt(br.readLine());
+        char ch = word.charAt(n - 1);
+
+        bw.write(ch);
         bw.flush();
         bw.close();
     }
