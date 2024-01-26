@@ -1,23 +1,31 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); // 정수의 총 개수
-        int[] arr = new int[n];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] numArr = new int[n];
+        
         for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt(); // 입력 정수
+            numArr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int v = sc.nextInt(); // 정수 v (개수를 찾는 정수)
+        int v = Integer.parseInt(br.readLine());
+        br.close();
+        
         int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == v) {
+        for (int i = 0; i < n; i++) {
+            if (numArr[i] == v) {
                 count++;
             }
         }
 
-        System.out.println(count);
+        bw.write(String.valueOf(count));
+        bw.flush();
+        bw.close();
     }
 }
