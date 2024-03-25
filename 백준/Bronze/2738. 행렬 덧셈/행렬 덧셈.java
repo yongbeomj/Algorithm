@@ -1,40 +1,46 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        int[][] arrA = new int[n][m];
-        int[][] arrB = new int[n][m];
+        int[][] matrixA = new int[n][m];
+        int[][] matrixB = new int[n][m];
 
-        for (int i = 0; i < arrA.length; i++) {
+        for (int i = 0; i < n; i++) {
             StringTokenizer stA = new StringTokenizer(br.readLine());
-            for (int j = 0; j < arrA[i].length; j++) {
-                arrA[i][j] = Integer.parseInt(stA.nextToken());
-            }
-        }
 
-        for (int i = 0; i < arrB.length; i++) {
-            StringTokenizer stB = new StringTokenizer(br.readLine());
-            for (int j = 0; j < arrB[i].length; j++) {
-                arrB[i][j] = Integer.parseInt(stB.nextToken());
+            for (int j = 0; j < m; j++) {
+                matrixA[i][j] = Integer.parseInt(stA.nextToken());
             }
         }
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.printf("%d ", arrA[i][j] + arrB[i][j]);
-            }
-            System.out.println();
-        }
+            StringTokenizer stB = new StringTokenizer(br.readLine());
 
+            for (int j = 0; j < m; j++) {
+                matrixB[i][j] = Integer.parseInt(stB.nextToken());
+            }
+        }
         br.close();
+
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                sb.append(matrixA[i][j] + matrixB[i][j]).append(" ");
+            }
+            sb.append("\n");
+        }
+        
+        bw.write(String.valueOf(sb));
+        bw.flush();
+        bw.close();
     }
 }
