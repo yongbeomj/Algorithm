@@ -1,22 +1,15 @@
 class Solution {
     public int[] solution(String s) {
-        int change = 0;
-        int count = 0;
-        String prev = s;
+        int[] answer = new int[2];
 
-        while (true) {
-            change++;
-
-            String next = prev.replace("0", "");
-            count += prev.length() - next.length();
-            prev = Integer.toBinaryString(next.length());
-
-            if (prev.equals("1")) {
-                break;
-            }
+        while (!s.equals("1")) {
+            String temp = s.replace("0", "");
+            answer[1] += s.length() - temp.length();
+            s = Integer.toBinaryString(temp.length());
+            
+            answer[0]++;
         }
-
-        int[] answer = {change, count};
+        
         return answer;
     }
 }
