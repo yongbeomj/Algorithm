@@ -1,18 +1,20 @@
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
+        boolean answer = false;
         int match = 0;
 
         for (int i = 0; i < s.length(); i++) {
             match += s.charAt(i) == '(' ? 1 : -1;
 
             if (match < 0) {
-                answer = false;
                 break;
             }
         }
 
-        answer = match == 0 ? true : false;
+        if (match == 0) {
+            answer = true;
+        }
+        
         return answer;
     }
 }
