@@ -6,12 +6,14 @@ class Solution {
         Arrays.sort(d);
 
         for (int i = 0; i < d.length; i++) {
-            if (budget >= d[i]) {
-                budget -= d[i];
-                answer++;
+            if (budget < d[i]) {
+                break;
             }
+
+            budget -= d[i];
+            answer++;
         }
-        
+
         return answer;
     }
 }
