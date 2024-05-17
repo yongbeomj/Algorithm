@@ -11,17 +11,10 @@ public class Main {
         int b = Integer.parseInt(st.nextToken()); // 가변 비용
         int c = Integer.parseInt(st.nextToken()); // 노트북 가격
 
-        long count = 0;
-        while (true) {
-            count++;
-            if (b >= c) {
-                count = -1;
-                break;
-            } else if ((c * count) > (a + b * count)) {
-                break;
-            }
+        if (b >= c) {
+            System.out.println(-1);
+        } else {
+            System.out.println(a / (c - b) + 1);
         }
-
-        System.out.println(count);
     }
 }
